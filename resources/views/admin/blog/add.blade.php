@@ -1,5 +1,5 @@
 @extends('admin.layout.app')
-@section('page-title', 'Create Article')
+@section('page-title', 'Create Blog')
 
 @section('section')
 <section class="content">
@@ -10,33 +10,33 @@
                     <div class="card-header">
                         <div class="row mb-3">
                             <div class="col-md-12 text-right">
-                                <a href="{{ route('admin.article.list.all') }}" class="btn btn-sm btn-primary">
+                                <a href="{{ route('admin.blog.list.all') }}" class="btn btn-sm btn-primary">
                                     <i class="fa fa-chevron-left"></i> Back
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.article.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.blog.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label for="title">Title *</label>
+                                <label for="title">Title <span style="color: red;">*</span></label>
                                 <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{ old('title') }}">
                                 @error('title') 
                                     <p class="small text-danger">{{ $message }}</p> 
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="sub_title">Sub Title *</label>
-                                <input type="text" class="form-control" name="sub_title" id="sub_title" placeholder="Enter Sub Title" value="{{ old('sub_title') }}">
-                                @error('sub_title') 
+                                <label for="short_desc">Short Description </label>
+                                <input type="text" class="form-control" name="short_desc" id="short_desc" placeholder="Enter Short Description" value="{{ old('short_desc') }}">
+                                @error('short_desc') 
                                     <p class="small text-danger">{{ $message }}</p> 
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="content">Content *</label>
-                                <textarea class="form-control ckeditor" name="content" id="content" placeholder="Enter Content">{{ old('content') }}</textarea>
-                                @error('content') 
+                                <label for="desc">Description <span style="color: red;">*</span></label>
+                                <textarea class="form-control ckeditor" name="desc" id="desc" placeholder="Enter Description">{{ old('desc') }}</textarea>
+                                @error('desc') 
                                     <p class="small text-danger">{{ $message }}</p> 
                                 @enderror
                             </div>
@@ -71,7 +71,7 @@
                                     <p class="small text-danger">{{ $message }}</p> 
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-primary">Create Article</button>
+                            <button type="submit" class="btn btn-primary">Create Blog</button>
                         </form>
                     </div>
                 </div>

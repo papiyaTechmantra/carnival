@@ -74,9 +74,6 @@ class PageContentRepository implements PageContentRepositoryInterface
 
     public function updatePageContent($page_content, array $data)
     {
-        // dd($page_content);
-        // $page_content = PageContent::findOrFail($id);
-        // dd($page_content);
         $page_content->page = $data['page'];
         $page_content->title = $data['title'];
         $page_content->short_description = $data['short_description'];
@@ -90,7 +87,6 @@ class PageContentRepository implements PageContentRepositoryInterface
         }
 
         if (isset($data['image'])) {
-            // Delete old image if exists
             if ($page_content->image && file_exists(public_path($page_content->image))) {
                 unlink(public_path($page_content->image));
             }

@@ -58,7 +58,20 @@
                 <i class="nav-icon fas fa-file-alt"></i>
                 <p>Master Modules <i class="right fas fa-angle-left"></i></p>
             </a>
+
+               
+
+
             <ul class="nav nav-treeview">
+                @if(in_array('Blogs', $RolePass))
+                    <li class="nav-item">
+                        <a href="{{ route('admin.blog.list.all') }}"
+                            class="nav-link {{ (request()->is('admin/master-module/blog*')) ? 'active active_nav_link' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Blogs</p>
+                        </a>
+                    </li>
+                @endif
                 @if(in_array('social_Media', $RolePass))
                 <li class="nav-item">
                     <a href="{{ route('admin.social_media.list.all') }}"

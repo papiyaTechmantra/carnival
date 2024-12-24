@@ -1,5 +1,5 @@
 @extends('admin.layout.app')
-@section('page-title', 'Edit Article')
+@section('page-title', 'Edit Blog')
 
 @section('section')
 <section class="content">
@@ -10,18 +10,18 @@
                     <div class="card-header">
                         <div class="row mb-3">
                             <div class="col-md-12 text-right">
-                                <a href="{{ route('admin.article.list.all') }}" class="btn btn-sm btn-primary">
+                                <a href="{{ route('admin.blog.list.all') }}" class="btn btn-sm btn-primary">
                                     <i class="fa fa-chevron-left"></i> Back
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('admin.article.update', $data->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.blog.update', $data->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                             <div class="form-group">
-                                <label for="title">Title *</label>
+                                <label for="title">Title <span style="color: red;">*</span></label>
                                 <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title" value="{{ $data->title }}">
                                 @error('title') 
                                     <p class="small text-danger">{{ $message }}</p> 
@@ -29,16 +29,16 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="sub_title">Sub Title *</label>
-                                <input type="text" class="form-control" name="sub_title" id="sub_title" placeholder="Enter Sub Title" value="{{ $data->sub_title }}">
-                                @error('sub_title') 
+                                <label for="short_desc">Short Description </label>
+                                <input type="text" class="form-control" name="short_desc" id="short_desc" placeholder="Enter Short Description" value="{{ $data->short_desc }}">
+                                @error('short_desc') 
                                     <p class="small text-danger">{{ $message }}</p> 
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="content">Content *</label>
-                                <textarea class="form-control ckeditor" name="content" id="content" placeholder="Enter Content">{{ $data->content }}</textarea>
-                                @error('content') 
+                                <label for="desc">Description <span style="color: red;">*</span></label>
+                                <textarea class="form-control ckeditor" name="desc" id="desc" placeholder="Enter Description">{{ $data->desc }}</textarea>
+                                @error('desc') 
                                     <p class="small text-danger">{{ $message }}</p> 
                                 @enderror
                             </div>
@@ -46,7 +46,7 @@
                                 <label for="image">Image</label>
                                 <input type="file" class="form-control" name="image" id="image">
                                 @if($data->image)
-                                    <img src="{{ asset('storage/' . $data->image) }}" alt="Article Image" width="100">
+                                    <img src="{{ asset('storage/' . $data->image) }}" alt="Blog Image" width="100">
                                 @endif
                                 @error('image')
                                     <p class="small text-danger">{{ $message }}</p>
@@ -87,7 +87,7 @@
                                 @enderror
                             </div>
                             <input type="hidden" name="id" value="{{ $data->id }}">
-                            <button type="submit" class="btn btn-primary">Update Article</button>
+                            <button type="submit" class="btn btn-primary">Update Blog</button>
                         </form>
                     </div>
                 </div>
@@ -98,5 +98,9 @@
 @endsection
 
 @section('script')
+<!-- <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script> -->
 
+<script>
+   
+</script>
 @endsection

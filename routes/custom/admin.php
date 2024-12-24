@@ -44,6 +44,16 @@ Route::name('admin.')->group(function() {
                Route::post('/update', [SocialMediaController::class, 'update'])->name('social_media.update');
                Route::get('/delete/{id}', [SocialMediaController::class, 'delete'])->name('social_media.delete');
            });
+           Route::prefix('blog')->group(function() {
+            Route::get('/', [BlogController::class, 'index'])->name('blog.list.all');
+            Route::get('/create', [BlogController::class, 'create'])->name('blog.create');
+            Route::post('/store', [BlogController::class, 'store'])->name('blog.store');
+            Route::get('/show/{id}', [BlogController::class, 'show'])->name('blog.show');
+            Route::get('/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+            Route::post('/update/{id}', [BlogController::class, 'update'])->name('blog.update');
+            Route::get('/status/{id}', [BlogController::class, 'BlogStatus'])->name('blog.status'); 
+            Route::get('/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
+        });
         });
         // Route::resource('article', ArticleController::class);
 

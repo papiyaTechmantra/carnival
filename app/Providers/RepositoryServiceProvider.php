@@ -23,6 +23,9 @@ use App\Repositories\ProductRepository;
 use App\Interfaces\ArticleRepositoryInterface;
 use App\Repositories\ArticleRepository;
 
+use App\Interfaces\BlogRepositoryInterface;
+use App\Repositories\BlogRepository;
+
 use App\Interfaces\PageContentRepositoryInterface;
 use App\Repositories\PageContentRepository;
 
@@ -38,6 +41,8 @@ class RepositoryServiceProvider extends ServiceProvider
 
         $this->app->bind(ArticleRepositoryInterface::class, ArticleRepository::class);
         $this->app->bind(PageContentRepositoryInterface::class, PageContentRepository::class);
+        $this->app->bind(BlogRepositoryInterface::class, BlogRepository::class);
+
         $this->app->bind(UserInterface::class, UserRepository::class);
         // $this->app->bind(OrderInterface::class, OrderRepository::class);
         // $this->app->bind(CategoryInterface::class, CategoryRepository::class);
