@@ -21,6 +21,7 @@ class BlogController extends Controller
         $keyword = $request->keyword ?? '';
         $query = Blog::query();
         
+        // dd($query);
         // Apply search filter based on the keyword (search in title or desc)
         $query->when($keyword, function($query) use ($keyword) {
             $query->where('title', 'like', '%'.$keyword.'%')

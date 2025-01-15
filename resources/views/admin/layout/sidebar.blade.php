@@ -7,8 +7,6 @@
                 <p>Dashboard</p> 
             </a>
         </li>
-       
-        
         @if(in_array('WEBSITE SETTINGS', $RolePass))
         <li class="nav-item {{ (request()->is('admin/settings*')) ? 'menu-open' : '' }}">
             <a href="{{route('admin.settings')}}"
@@ -35,22 +33,6 @@
             </a>
         </li>
         @endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         @if(in_array('MASTER MODULES', $RolePass))
         <li class="nav-item {{ (request()->is('admin/master-module*')) ? 'menu-open' : '' }}">
             <a href="#"
@@ -58,10 +40,6 @@
                 <i class="nav-icon fas fa-file-alt"></i>
                 <p>Master Modules <i class="right fas fa-angle-left"></i></p>
             </a>
-
-               
-
-
             <ul class="nav nav-treeview">
                 @if(in_array('Blogs', $RolePass))
                     <li class="nav-item">
@@ -81,17 +59,17 @@
                     </a>
                 </li>
                 @endif
+                    <li class="nav-item">
+                        <a href="{{ route('admin.search-tagline.list.all') }}"
+                            class="nav-link {{ (request()->is('admin/master-module/search-tagline*')) ? 'active active_nav_link' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Search Tagline</p>
+                        </a>
+                    </li>
+
             </ul>
         </li>
         @endif
-
-
-
-
-
-
-
-
         @if(in_array('CONTENT MANAGEMENT', $RolePass))
         <li class="nav-item {{ (request()->is('admin/content*')) ? 'menu-open' : '' }}">
             <a href="#"
@@ -109,8 +87,6 @@
                     </a>
                 </li>
                 @endif
-               
-                
             </ul>
         </li>
         @endif

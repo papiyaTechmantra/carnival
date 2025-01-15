@@ -53,8 +53,6 @@
                             <label for="status">Status</label>
                             <p>{{ $blog->status == 1 ? 'Active' : 'Inactive' }}</p>
                         </div>
-
-                        
                     </div>
                     <div class="card-footer text-right">
                         <a href="{{ route('admin.blog.edit', $blog->id) }}" class="btn btn-sm btn-warning">Edit</a>
