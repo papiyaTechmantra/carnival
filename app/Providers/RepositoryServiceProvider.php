@@ -32,6 +32,9 @@ use App\Repositories\PageContentRepository;
 use App\Interfaces\SearchTaglineRepositoryInterface;
 use App\Repositories\SearchTaglineRepository;
 
+use App\Interfaces\NavigationRepositoryInterface;
+use App\Repositories\NavigationRepository;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
@@ -46,6 +49,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(PageContentRepositoryInterface::class, PageContentRepository::class);
         $this->app->bind(BlogRepositoryInterface::class, BlogRepository::class);
         $this->app->bind(SearchTaglineRepositoryInterface::class, SearchTaglineRepository::class);
+        $this->app->bind(NavigationRepositoryInterface::class, NavigationRepository::class);
 
         $this->app->bind(UserInterface::class, UserRepository::class);
         // $this->app->bind(OrderInterface::class, OrderRepository::class);

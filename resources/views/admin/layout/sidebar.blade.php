@@ -59,6 +59,7 @@
                     </a>
                 </li>
                 @endif
+                {{-- @if(in_array('search_tagline', $RolePass)) --}}
                     <li class="nav-item">
                         <a href="{{ route('admin.search-tagline.list.all') }}"
                             class="nav-link {{ (request()->is('admin/master-module/search-tagline*')) ? 'active active_nav_link' : '' }}">
@@ -66,7 +67,17 @@
                             <p>Search Tagline</p>
                         </a>
                     </li>
+                    {{-- @endif --}}
 
+               {{-- @if(in_array('navigation', $RolePass)) --}}
+                    <li class="nav-item">
+                        <a href="{{ route('admin.navigation.list.all') }}"
+                            class="nav-link {{ (request()->is('admin/master-module/navigation*')) ? 'active active_nav_link' : '' }}">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Navigation Menu</p>
+                        </a>
+                    </li>
+                    {{-- @endif --}}
             </ul>
         </li>
         @endif

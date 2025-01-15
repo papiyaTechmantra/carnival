@@ -64,6 +64,17 @@ Route::name('admin.')->group(function() {
                 Route::get('/status/{id}', [SearchTaglineController::class, 'BlogStatus'])->name('search-tagline.status'); 
                 Route::get('/delete/{id}', [SearchTaglineController::class, 'delete'])->name('search-tagline.delete');
             });
+
+            Route::prefix('navigation')->group(function() {
+                Route::get('/', [NavigationController::class, 'index'])->name('navigation.list.all');
+                Route::get('/create', [NavigationController::class, 'create'])->name('navigation.create');
+                Route::post('/store', [NavigationController::class, 'store'])->name('navigation.store');
+                Route::get('/show/{id}', [NavigationController::class, 'show'])->name('navigation.show');
+                Route::get('/edit/{id}', [NavigationController::class, 'edit'])->name('navigation.edit');
+                Route::post('/update/{id}', [NavigationController::class, 'update'])->name('navigation.update');
+                Route::get('/status/{id}', [NavigationController::class, 'BlogStatus'])->name('navigation.status'); 
+                Route::get('/delete/{id}', [NavigationController::class, 'delete'])->name('navigation.delete');
+            });
         });
         // Route::resource('article', ArticleController::class);
 
